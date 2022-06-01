@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -26,10 +27,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('front-demo');
   });
 
-  it('should render title', () => {
+  it('Didable Button -> true', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('front-demo app is running!');
+    const component = fixture.componentInstance;
+    component.accept();
+    expect(component).toBeTruthy();
+    expect(component.disableButton).toBeTrue();
   });
 });
