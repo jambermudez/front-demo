@@ -1,0 +1,40 @@
+.divCenter{
+    margin: 0 auto;
+}
+
+.textCenter{
+    text-align: center;
+}
+
+.example-card {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 300px;
+    
+ }
+  
+.mat-card-image {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageCard{
+    margin: auto;
+    width: 125px;
+}
+
+.marginTop20px{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.example-margin{
+    margin-left: 150px;
+}
+
+.styleButton{
+    border-radius: 20px;
+    color: black;
+    width: 150px;
+}
