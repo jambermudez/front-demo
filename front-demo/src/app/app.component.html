@@ -10,26 +10,17 @@
         <mat-card-content>
           <form class="example-form">
             <div class="row">
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input type="email" matInput [formControl]="emailFormControl" placeholder="Email">
-              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <input type="email" matInput id="email" [formControl]="emailFormControl" placeholder="Email">
+                </mat-form-field>
+                <p class="errorStyle" *ngIf="!emailFormControl.valid && emailFormControl.touched">Invalid email</p>
           </div>
           <div class="row">
               <mat-form-field class="example-full-width" appearance="fill">
-                <input type="password" matInput [formControl]="emailFormControl" placeholder="Contraseña">
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                  Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error>
+                <input type="password" minlength="5" matInput [formControl]="loginFormControl" placeholder="Contraseña">
               </mat-form-field>
+              <p class="errorStyle" *ngIf="loginFormControl.hasError('required') && loginFormControl.touched">Password required</p>
+              <p class="errorStyle" *ngIf="loginFormControl.hasError('minlength')">Minimun 5 Caracter</p>
             </div>
 
             <div class="row">
@@ -42,7 +33,7 @@
           </div>
 
           <div class="row marginTop20px">
-              <button type="button" class="btn btn-outline-primary styleButton divCenter">Acceder</button>
+              <button type="button" class="btn btn-outline-primary styleButton divCenter" (click)="accept()" [disabled]="disableButton">Acceder</button>
           </div>
           
           </form>

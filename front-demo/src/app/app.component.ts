@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators, NgControl } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, Validators, NgControl, FormGroup, FormBuilder } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
@@ -11,14 +11,19 @@ export class AppComponent {
   title = 'front-demo';
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  loginFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
 
-  matcher = '';
-
-  color: ThemePalette = 'accent';
-  checked = false;
-  disabled = false;
+  disableButton = false;
 
   public accept(): void {
-    console.log('asdf');
+
+    console.log(this.emailFormControl.value);
+
+    if (this.emailFormControl.valid && this.loginFormControl.valid){
+      console.log('Login Correcto');
+    }else{
+      this.disableButton = true;
+    }
   }
+  
 }
