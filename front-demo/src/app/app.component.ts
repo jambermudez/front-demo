@@ -16,9 +16,6 @@ export class AppComponent {
   disableButton = false;
 
   public accept(): void {
-
-    console.log(this.emailFormControl.value);
-
     if (this.emailFormControl.valid && this.loginFormControl.valid){
       console.log('Login Correcto');
     }else{

@@ -27,12 +27,24 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('front-demo');
   });
 
-  it('Didable Button -> true', () => {
+  it('Login KO - Disable Button -> true', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const component = fixture.componentInstance;
     component.accept();
     expect(component).toBeTruthy();
     expect(component.disableButton).toBeTrue();
+  });
+
+  it('Login OK - Disable button -> false', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const component = fixture.componentInstance;
+    component.emailFormControl.setValue('josemartinbermudez@gmail.com');
+    component.loginFormControl.setValue('123456');
+
+    component.accept();
+    expect(component).toBeTruthy();
+    expect(component.disableButton).not.toBeTrue();
   });
 });
